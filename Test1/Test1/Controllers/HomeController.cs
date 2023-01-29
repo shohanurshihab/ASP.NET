@@ -26,5 +26,11 @@ namespace Test1.Controllers
 
             return View();
         }
+        public ActionResult Pricing()
+        {
+            ViewBag.Message = "Your pricing page.";
+
+            return View();
+        }
     }
 }
