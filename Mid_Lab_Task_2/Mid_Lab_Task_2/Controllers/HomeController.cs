@@ -39,8 +39,8 @@ namespace Mid_Lab_Task_2.Controllers
             {
                 Prods p = new Prods();
                 p.Id = i;
-                p.Name = "P" + i;
-                p.Price = 500 + i;
+                p.Name = "P-" + i;
+                p.Price = 507 + i*2;
                 product[i] = p;
             } 
             return View(product);      

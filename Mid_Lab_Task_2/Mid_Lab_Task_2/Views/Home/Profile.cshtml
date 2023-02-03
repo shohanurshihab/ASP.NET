@@ -6,21 +6,23 @@
 
 
 <h2>Profile</h2>
-<div class="table-bordered">
-    <table border="1">
-        <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Price</td>
-        </tr>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@product.Id</td>
-                <td>@product.Name</td>
-                <td>@product.Price</td>
-            </tr>
-        }
-    </table>
 
-</div>
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price$</td>
+                </tr>
+            }
+        </tbody>
+    </table>
