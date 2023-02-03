@@ -1,0 +1,55 @@
+﻿    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>sales</title>
+    </head>
+    <body>
+
+        <nav>
+            <ul>
+                <li><a href="/Home/Profile">Profile</a></li>
+                <li><a href="/Home/Login">Logout</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </body>
+</html>
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #3f51b5;
+    }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: azure;
+            text-decoration: none;
+        }
+        nav a:hover{
+            color:lightblue;
+        }
+</style>
+

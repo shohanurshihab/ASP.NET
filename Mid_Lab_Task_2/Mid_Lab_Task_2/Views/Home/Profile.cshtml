@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/sales.cshtml";
+    @model Mid_Lab_Task_2.Models.Prods[]
+}
+
+
+<h2>Profile</h2>
+<div class="table-bordered">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+    </table>
+
+</div>
