@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Delete</h2>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Product</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <label for="id">ID:</label>
+        @Model.id 
+        <label for="cid">Category Id</label>
+        @Model.Cid
+
+        <label for="name">Name:</label>
+        @Model.Name
+
+        <label for="price">Price:</label>
+        @Model.Price
+
+
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>
+
+
+
+

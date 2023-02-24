@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Mid_Lab_Task_4.EF.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products Table</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #dddddd;
+        }
+
+        .crud-links a {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+        }
+
+            .crud-links a:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+    <h2>Products</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>CRUD</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+            <td>@Html.DisplayFor(modelItem => item.QTY)</td>
+            <td class="crud-links">
+                <a href="#">Edit</a>
+                <a href="#">Delete</a>
+            </td>
+        </tr>
+      
+            }
+        </tbody>
+    </table>
+</body>
+</html>

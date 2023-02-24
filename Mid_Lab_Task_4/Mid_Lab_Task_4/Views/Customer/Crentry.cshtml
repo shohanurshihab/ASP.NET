@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Crentry";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Entry</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+    <h2>Insert Customer</h2>
+    <form>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+
+        <input type="submit" value="Insert">
+    </form>
+</body>
+</html>
+

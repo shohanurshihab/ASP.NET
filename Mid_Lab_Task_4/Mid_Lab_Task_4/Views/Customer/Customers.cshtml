@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Customers";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Table</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #dddddd;
+        }
+
+        .crud-links a {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+        }
+
+            .crud-links a:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+    <h2>Customers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Phone</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>CRUD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Product A</td>
+                <td>$10.00</td>
+                <td>100</td>
+                <td class="crud-links">
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Product B</td>
+                <td>$20.00</td>
+                <td>50</td>
+                <td class="crud-links">
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Product C</td>
+                <td>$15.00</td>
+                <td>75</td>
+                <td class="crud-links">
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "";
+    bool CheckHobby(string hobby)
+    {
+        if(Model != null && Model.Hobbies!=null)
+        {
+            foreach(var item in Model.Hobbies)
+            {
+                if (item.Equals(hobby)) return true;
+            }
+        }
+        return false;
+    }
+    bool CheckGender(string gender)
+    {
+        if (Model != null && Model.Gender != null)
+        {
+            foreach (var item in Model.Gender)
+            {
+                if (item.Equals(item)) return true;
+            }
+        }
+        return false;
+    }
+}
+
+@*  custom validation_attribute *@
+
+<form action="/Home/Index" class="form-control-static" method="post">
+    Name:
+    <input type="text" value="@(Model ==null ? "":Model.Name)" name="Name" />
+    <span style="color:red">@Html.ValidationMessage("Name")</span>
+    <br />
+    ID:
+    <input type="text" value="@(Model ==null ? "":Model.Id)" name="Id" />
+    <span style="color:red">@Html.ValidationMessage("Id")</span>
+    <br />
+    Gender:
+    <input type="radio" name="Gender" checked="@(CheckGender("male"))" value="male" />Male
+    <input type="radio" name="Gender" checked="@(CheckGender("female"))" value="female"/>Female
+    <span style="color:red">@Html.ValidationMessage("Gender")</span>
+    <br />
+    Profession:
+    <select name="Profession">
+        <option selected disabled value="Teacher">Teacher</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Student">Student</option>
+    </select>
+    <span style="color:red">@Html.ValidationMessage("Proffession")</span>
+    <br />
+    Hobbits:
+    <input type="checkbox" checked="@(CheckHobby("Games"))" value="Games" name="Hobbies[]" />Game
+    <input type="checkbox" checked="@(CheckHobby("Sports"))" value="Sports" name="Hobbies[]" />Sports
+    <input type="checkbox" checked="@(CheckHobby("Travelling"))" value="Travelling" name="Hobbies[]" />Travelling
+    <input type="checkbox" checked="@(CheckHobby("Music"))" value="Music" name="Hobbies[]" />Music
+    <span style="color:red">@Html.ValidationMessage("Hobbies")</span>
+    <br />
+    <br />
+    Date of Birth:
+    <input type="date" name="DoB" value="@(Model == null ? "":Model.DoB.Date.ToString("yyyy-MM-dd"))" />
+    <span style="color:red">@Html.ValidationMessage("Date of Birth")</span>
+    <br />
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+

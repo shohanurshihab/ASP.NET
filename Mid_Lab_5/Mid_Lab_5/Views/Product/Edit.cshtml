@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+    
+    <form method="post">
+
+        <input type="hidden" id="id" name="id" value="@Model.id">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="@Model.Name">
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" value="@Model.Price">
+
+        <label for="cid">Category Id</label>
+        <input type="text" id="cid" name="cid" value="@Model.Cid">
+
+        <input type="submit" value="Insert">
+    </form>
+</body>
+</html>
+
+
+
+
