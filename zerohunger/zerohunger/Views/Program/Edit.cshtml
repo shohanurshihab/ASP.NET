@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Edit</h2>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Item</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+    </style>
+</head>
+<body>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <label for="id">Restaurent ID:</label>
+        <input type="hidden" name="id" value="@Model.id" />
+
+        <label for="name">Restaurent Name:</label>
+        <input type="text" name="name" value="@Model.name" />
+
+        <label for="cid">Food Name</label>
+        @Model.name<input type="text" name="food" value="@Model.food" />
+
+        <label for="price">Quantity:</label>
+        <input type="text" name="quantity" value="@Model.quantity" />
+
+         <label for="price">Expires in (Days):</label>
+        <input type="text" name="expiredate" value="@Model.expiredate" />
+
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
+
+
+
+
+

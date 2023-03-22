@@ -1,0 +1,61 @@
+﻿@model IEnumerable<zerohunger.EF.Collection>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Restaurent Id
+        </th>
+        <th>
+            Restaurent Name
+        </th>
+
+        <th>
+            Food Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Expires In
+        </th>
+
+        <th>
+            Assign
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.res_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.res_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.food_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expire) Days
+            </td>
+
+
+            <td>
+                <a href="/Program/Assign/@item.res_id" class="btn btn-success">Assign</a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+<a href="/Program/CollectionDash/">Go Back</a>

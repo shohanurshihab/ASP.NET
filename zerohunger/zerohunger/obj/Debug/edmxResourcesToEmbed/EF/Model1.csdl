@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zerohungerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Collection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="food_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="expire" Type="Int32" />
+    <Property Name="emp_id" Type="Int32" />
+    <Property Name="emp_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="res_id" Type="Int32" />
+    <Property Name="res_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Collections_Employees" FromRole="Collections" ToRole="Employees" />
+    <NavigationProperty Name="Restaurent" Relationship="Self.FK_Collections_Restaurents" FromRole="Collections" ToRole="Restaurents" />
+    <Property Name="ordertime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Collections" Relationship="Self.FK_Collections_Employees" FromRole="Employees" ToRole="Collections" />
+  </EntityType>
+  <EntityType Name="Restaurent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="food" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="expiredate" Type="Int32" />
+    <NavigationProperty Name="Collections" Relationship="Self.FK_Collections_Restaurents" FromRole="Restaurents" ToRole="Collections" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Collections_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Collections" Type="Self.Collection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Collections">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collections_Restaurents">
+    <End Role="Restaurents" Type="Self.Restaurent" Multiplicity="0..1" />
+    <End Role="Collections" Type="Self.Collection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurents">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Collections">
+        <PropertyRef Name="res_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="zerohungerEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Collections" EntityType="Self.Collection" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Restaurents" EntityType="Self.Restaurent" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Collections_Employees" Association="Self.FK_Collections_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Collections" EntitySet="Collections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collections_Restaurents" Association="Self.FK_Collections_Restaurents">
+      <End Role="Restaurents" EntitySet="Restaurents" />
+      <End Role="Collections" EntitySet="Collections" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

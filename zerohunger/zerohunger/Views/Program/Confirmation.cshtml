@@ -1,0 +1,79 @@
+﻿@model IEnumerable<zerohunger.EF.Collection>
+
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+<h2>Confirmation</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Food Name
+        </th>
+        <th>
+           Quantity
+        </th>
+        <th>
+           Expires in
+        </th>
+        <th>
+           Employee Id
+        </th>
+        <th>
+           Employee Name
+        </th>
+        <th>
+           Restaurent Name
+        </th>
+        <th>
+            Order Date & Time
+        </th>
+        <th>
+            Status
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.food_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expire) days
+        </td>
+        <td>
+            @if (item.emp_id == null)
+            {
+                @:Not Assigned
+            }
+            else
+            {
+                @item.emp_id
+            }
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.res_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordertime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+
+    </tr>
+}
+
+</table>
+
+
